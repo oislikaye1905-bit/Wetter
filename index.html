@@ -1,24 +1,62 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Wetter App</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Weather App</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <div class="app">
-    <h1>Wetter App</h1>
-
-    <div class="search">
-      <input type="text" id="cityInput" placeholder="Stadt eingeben">
-      <button onclick="getWeather()">Suchen</button>
-    </div>
-
-    <div id="weatherBox" class="weather-box">
-      <p>Gib eine Stadt ein, um das Wetter zu sehen.</p>
-    </div>
+  <div class="weather-bg">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
   </div>
+
+  <main class="app">
+    <header class="nav">
+      <div class="brand">🌤️ Weather</div>
+
+      <div class="searchbar">
+        <input id="cityInput" type="text" placeholder="Stadt suchen..." />
+        <button onclick="getWeather()">🔍</button>
+      </div>
+
+      <div class="nav-actions">
+        <button onclick="searchCity('Basel')">📍</button>
+        <button onclick="toggleTheme()">🌙</button>
+        <button onclick="toggleSettings()">⚙️</button>
+      </div>
+    </header>
+
+    <section id="settingsBox" class="settings hidden">
+      <h3>Einstellungen</h3>
+      <div class="chips">
+        <button onclick="searchCity('Basel')">Basel</button>
+        <button onclick="searchCity('Zürich')">Zürich</button>
+        <button onclick="searchCity('Bern')">Bern</button>
+        <button onclick="searchCity('Istanbul')">Istanbul</button>
+        <button onclick="searchCity('London')">London</button>
+        <button onclick="searchCity('New York')">New York</button>
+      </div>
+    </section>
+
+    <section id="homeScreen" class="home">
+      <div class="home-icon">🌦️</div>
+      <h1>Premium Weather</h1>
+      <p>Live-Wetter, 24-Stunden-Verlauf und interaktive 7-Tage-Vorschau.</p>
+
+      <div class="home-cards">
+        <div>📈 Temperaturverlauf</div>
+        <div>☔ Regenchance</div>
+        <div>🌅 Sonnenzeiten</div>
+      </div>
+    </section>
+
+    <section id="weatherBox" class="dashboard"></section>
+  </main>
 
   <script src="script.js"></script>
 </body>
